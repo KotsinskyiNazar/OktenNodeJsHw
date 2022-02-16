@@ -43,7 +43,7 @@ fs.writeFile(path.join(__dirname, 'main', 'inPerson', 'user2FromInPerson.txt'), 
 })
 */
 
-
+//Не знаю чи це правильно можливо то якось проще можна було зробити ну шо придумав то придумав
 function moveUser() {
     fs.stat('main/inPerson/user2FromInPerson.txt', function (err, stats) {
         if (err) {
