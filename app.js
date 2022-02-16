@@ -2,10 +2,23 @@ const os = require('os')
 const fs = require('fs')
 const path = require('path')
 
-let user1 = {
-    name: "nazar",
-    age: 22
-}
+let user1 = [
+    {
+        id : 1,
+        name: "nazar",
+        age: 22,
+    },
+    {
+        id:2,
+        name : 'max',
+        age : 15,
+    },
+    {
+        id:3,
+        name : "okten",
+        age : "iternity",
+    }
+]
 let user2 = {
     name: "ivan",
     age: 19
@@ -26,8 +39,8 @@ fs.mkdir(path.join(__dirname, 'main', 'inPerson'), {recursive: true}, (err => {
         throw err
     }
 }))
+let data1 = user1.map(user1 => "id :"+ user1.id + "\n" + "name : " + user1.name + "\n" + "age : " + user1.age + "\n" + "date : " + new Date() + "\n").toString()
 
-data1 = "name : " + user1.name + "\n" + "age : " + user1.age + "\n" + "date : " + new Date()
 data2 = "name : " + user2.name + "\n" + "age : " + user2.age + "\n" + "date : " + new Date()
 
 /*
@@ -60,8 +73,8 @@ function moveUser() {
             })
         }
     });
-    fs.readFile("check.txt", "utf8", function(error,data){
-    console.log(data)
+    fs.readFile("check.txt", "utf8", function (error, data) {
+        console.log(data)
         if (data === 'true') {
             fs.rename('main/online/user1FromOnline.txt', 'main/inPerson/user1FromOnline.txt', err => {
                 if (err) {
@@ -87,7 +100,8 @@ function moveUser() {
                 }
             })
         }
-    });}
+    });
+}
 
 
 moveUser()
