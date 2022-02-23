@@ -1,10 +1,11 @@
-const {Router} = require('express')
-const loginControllers = require('../controllers/loginControllers')
-const loginMidleware = require('../midlewars/loginMidleware')
-const loginRouter = Router()
+const {Router} = require('express');
+const loginControllers = require('../controllers/loginControllers');
+const loginMidleware = require('../midlewars/loginMidleware');
 
-loginRouter.get('/',loginControllers.renderLogin)
-loginRouter.post('/',loginMidleware,loginControllers.saveUsers)
+const loginRouter = Router();
+
+loginRouter.get('/', loginControllers.renderLogin);
+loginRouter.post('/', loginMidleware, loginControllers.saveUsers);
 
 
-module.exports = loginRouter
+module.exports = loginRouter;

@@ -1,15 +1,19 @@
-const users = require('../db/users')
+const users = require('../db/users');
 
-class LoginControllers{
-    renderLogin (req,res){
+class LoginControllers {
+    renderLogin(req, res) {
         res.render('LoginPage');
     }
-    saveUsers (req,res){
-        users.push(req.body);
+
+    saveUsers({body}, res) {
+        const userId = new Date().getUTCMilliseconds()
+
+        console.log(userId);
+
+        users.push({...body, id: userId});
         res.redirect('/users');
     }
 }
 
 
-
-module.exports = new LoginControllers()
+module.exports = new LoginControllers();
